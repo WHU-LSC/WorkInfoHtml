@@ -1,0 +1,17 @@
+body div a {
+    display: inline-block;
+    height: 50px;
+    width: 300px;
+    background-color: rgb(95, 151, 123);
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    font-size: 1.25em;
+    text-decoration: none;
+}
+
+#MainContent {
+    height: 60px;
+    justify-content: center;
+    padding: 10px 10px 10px 0px;
+}
