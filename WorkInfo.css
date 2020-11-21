@@ -1,27 +1,32 @@
 body {
-    width: 1028px;
+    width: 100%;
     position: relative;
 }
 
-.XiaoHui {
-    display: inline;
-    width: 70%;
-    height: 70%;
+.top {
+    padding-top: 10px;
+    overflow: hidden;
+}
+
+.Name {
+    width: 60%;
+    display: inline-block;
 }
 
 .Search {
-    width: 300px;
+    width: 37%;
     text-align: right;
+    display: inline-block;
 }
 
 .Search form {
-    background: #eeefed;
+    background: #f0fae5;
     padding: 5px;
     border-radius: 5px;
     margin: 5px 0 0 0;
 }
 
-.Search input {
+.Search form input {
     line-height: 34px;
     left: 9px;
     top: 0;
@@ -43,10 +48,13 @@ body {
 }
 
 #MainContent {
-    background-color: #000;
+    background-color: rgb(221, 240, 206);
+    height: 60px;
+    margin: 10px 0 0 0;
+    padding: 5px;
 }
 
-.content {
+#MainContent a {
     display: inline-block;
     flex: none;
     height: 50px;
@@ -55,8 +63,13 @@ body {
     color: #fff;
     text-align: center;
     line-height: 50px;
-    font-size: 1.25em;
+    font-size: 1.5em;
     text-decoration: none;
     justify-content: center;
-    padding: 10px 10px 10px 0px;
+    padding: 5px;
+    border-radius: 2px;
+}
+
+#MainContent a:hover {
+    background-color: rgb(3, 73, 38);
 }
