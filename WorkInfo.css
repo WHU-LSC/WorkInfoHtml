@@ -1,17 +1,62 @@
-body div a {
-    display: inline-block;
-    height: 50px;
+body {
+    width: 1028px;
+    position: relative;
+}
+
+.XiaoHui {
+    display: inline;
+    width: 70%;
+    height: 70%;
+}
+
+.Search {
     width: 300px;
+    text-align: right;
+}
+
+.Search form {
+    background: #eeefed;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px 0 0 0;
+}
+
+.Search input {
+    line-height: 34px;
+    left: 9px;
+    top: 0;
+    white-space: nowrap;
+    right: 9px;
+    height: 35px;
+    width: 94%;
+    padding: 0 3% 0 3%;
+    background-color: #fff;
+    border: 1px solid #c8c8c8;
+    border-radius: 5px;
+    color: #ccc;
+    font-weight: 400;
+    font-size: 1em;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+#MainContent {
+    background-color: #000;
+}
+
+.content {
+    display: inline-block;
+    flex: none;
+    height: 50px;
+    width: 240px;
     background-color: rgb(95, 151, 123);
     color: #fff;
     text-align: center;
     line-height: 50px;
     font-size: 1.25em;
     text-decoration: none;
-}
-
-#MainContent {
-    height: 60px;
     justify-content: center;
     padding: 10px 10px 10px 0px;
 }

@@ -2,12 +2,26 @@
 <html>
 
 <head>
+
     <meta http-equiv="Content-Type" content="charset=UTF-8">
     <title>武汉大学研究生会求职就业信息汇总</title>
     <link rel="stylesheet" href="WorkInfo.css" type="text/css" charset="utf-8" />
 </head>
 
 <body>
+    <div class="top">
+        <h1 class="XiaoHui">
+            <img src="icon/xiaohui.png" alt="武汉大学校徽">
+        </h1>
+        <div class="Search">
+            <form action="#">
+                <input class="SearchInput" placeholder="搜索实习信息……" autocomplete="off">
+            </form>
+
+        </div>
+
+    </div>
+
     <div id="MainContent">
         <a class="content" href="#">全国地区</a>
         <a class="content" href="#">武汉地区</a>
@@ -16,6 +30,15 @@
     </div>
 
     <br> this is a body test
+    <script>
+        //jsonp方式解决异源问题
+        function fn(data) {
+            console.log(data);
+        }
+    </script>
+    <script type="text/javascript" src="https://lsc.ngrok2.xiaomiqiu.cn/api/test">
+        //这里fn其实是函数名, 返回结果fn(一坨data), 恰好触发了页面的fn函数
+    </script>
 </body>
 
 </html>
