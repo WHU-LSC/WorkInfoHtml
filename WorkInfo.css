@@ -1,6 +1,7 @@
 body {
     width: 100%;
     position: relative;
+    min-width: 1280px;
 }
 
 .top {
@@ -72,4 +73,14 @@ body {
 
 #MainContent a:hover {
     background-color: rgb(3, 73, 38);
+}
+
+.footer {
+    width: 100%;
+}
+
+.acknowledge {
+    color: rgb(221, 240, 206);
+    font-size: 1.25em;
+    text-align: center;
 }
