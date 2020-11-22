@@ -8,7 +8,7 @@
             "type": "pwa-chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "C:/Users/Administrator/Desktop/WorkInfoHtml/WorkInfo.html",
+            "url": "C:/Users/梨苏橙/Desktop/WorkInfoHtml/WorkInfo.html",
             "webRoot": "${workspaceFolder}"
         },
         {

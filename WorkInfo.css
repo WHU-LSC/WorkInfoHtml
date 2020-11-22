@@ -48,14 +48,14 @@ body {
     -o-border-radius: 5px;
 }
 
-#MainContent {
+#MainMenu {
     background-color: rgb(221, 240, 206);
     height: 60px;
     margin: 10px 0 0 0;
     padding: 5px;
 }
 
-#MainContent a {
+#MainMenu a {
     display: inline-block;
     flex: none;
     height: 50px;
@@ -71,8 +71,187 @@ body {
     border-radius: 2px;
 }
 
-#MainContent a:hover {
+#MainMenu a:hover {
     background-color: rgb(3, 73, 38);
+}
+
+.MainContent {
+    margin-top: 20px;
+    width: 100%;
+    position: relative;
+    min-width: 1280px;
+    background-color: #f6f6f6;
+}
+
+.sidebar {
+    border-radius: 3px;
+    width: 15%;
+    display: inline-block;
+    text-align: top;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    position: relative;
+}
+
+.dateTitle {
+    background-color: rgb(150, 185, 125);
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    display: block;
+    padding-left: 4px;
+    font-weight: 400;
+    display: block;
+    font-size: 1.2em;
+    line-height: 30px;
+    text-decoration: none;
+    text-align: center;
+    border-bottom: 1px solid #efefef;
+    position: sticky;
+    top: 0;
+}
+
+.dateDetail {
+    /* position: absolute;
+    top: 31px; */
+    overflow: auto;
+    height: 600px;
+}
+
+.dateContent {
+    background-color: rgb(221, 240, 206);
+    font-weight: bold;
+    color: #000;
+    display: block;
+    padding-left: 4px;
+    font-weight: 400;
+    display: block;
+    font-size: 1.2em;
+    line-height: 1.9em;
+    text-decoration: none;
+    text-align: center;
+    border-bottom: 1px solid #efefef;
+}
+
+.middleInfo {
+    display: block;
+    margin-left: 5px;
+    border-radius: 3px;
+    width: 80%;
+    display: inline-block;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0, 37, 55, .05);
+}
+
+.InfoTitle {
+    display: block;
+    line-height: 24px;
+    overflow: hidden;
+    padding: 10px 0px 10px 0px;
+    background: #fbfbfb;
+    border-top: 1px solid #efefef;
+    border-bottom: 1px solid #efefef;
+    color: #8590a6;
+    font-size: 15px;
+    border: 1px solid #e7eaf1;
+    box-shadow: 0 1px 3px rgba(0, 37, 55, .05);
+    box-sizing: border-box;
+}
+
+.infoAddressTitle {
+    font-weight: bold;
+    color: #000;
+    display: inline-block;
+    width: 20%;
+    text-align: center;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.25em;
+}
+
+.infoCompanyTitle {
+    font-weight: bold;
+    color: #000;
+    display: inline-block;
+    width: 28%;
+    border-left: 1px solid #cccbcb;
+    text-align: center;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.25em;
+}
+
+.infoJobTitle {
+    font-weight: bold;
+    color: #000;
+    display: inline-block;
+    width: 32%;
+    border-left: 1px solid #cccbcb;
+    text-align: center;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.25em;
+}
+
+.infoHerfTitle {
+    font-weight: bold;
+    color: #000;
+    display: inline-block;
+    width: 18%;
+    border-left: 1px solid #cccbcb;
+    text-align: center;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.25em;
+}
+
+.infoDetial {
+    overflow: auto;
+    display: block;
+    border-bottom: 1px solid #efefef;
+    background-color: #fff;
+    margin-top: 2px;
+    line-height: 30px;
+}
+
+.infoAddress {
+    display: inline-block;
+    width: 20%;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+}
+
+.infoCompany {
+    display: inline-block;
+    width: 28%;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+}
+
+.infoJob {
+    display: inline-block;
+    width: 32%;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+}
+
+.infoHerf {
+    display: inline-block;
+    width: 18%;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+}
+
+.infoHerf:hover {
+    color: rgb(15, 143, 228);
 }
 
 .footer {
