@@ -3,12 +3,20 @@
     // 悬停以查看现有属性的描述。
     // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
+    
     "configurations": [
         {
             "type": "pwa-chrome",
             "request": "launch",
-            "name": "Launch Chrome against localhost",
+            "name": "Launch Chrome for surface",
             "url": "C:/Users/梨苏橙/Desktop/WorkInfoHtml/WorkInfo.html",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "pwa-chrome",
+            "request": "launch",
+            "name": "Launch Chrome for lenovo",
+            "url": "C:/Users/Administrator/Desktop/WorkInfoHtml/WorkInfo.html",
             "webRoot": "${workspaceFolder}"
         },
         {
@@ -17,6 +25,21 @@
             "name": "Launch Chrome test",
             "url": "C:/Users/Administrator/Desktop/WorkInfoHtml/test.html",
             "webRoot": "${workspaceFolder}"
-        }
+        },
+        {
+            "name": "Listen for XDebug",
+            "type": "php",
+            "request": "launch",
+            "port": 9000
+        },
+        {
+            "name": "PHP",
+            "type": "php",
+            "request": "launch",
+            "program": "${file}",
+            "cwd": "${fileDirname}",
+            "port": 9000
+            
+            }
     ]
 }
