@@ -1,16 +1,36 @@
 
 <?php
     $conn = mysqli_connect("localhost","root","123456","shixi") or die("数据库连接失败".mysql_error());
-    $sql = "select * from test";//查询数据库当中的表的ID，
+    $sql = "select * from shixi_country";//查询数据库当中的表的ID，
     $result = $conn->query($sql);
+     
+
+    $array = array(); 
+    $i = 0; 
      
     if ($result->num_rows > 0) {
         // 输出数据
         while($row = $result->fetch_assoc()) {
-            echo "id: " . $row["id"]. " - Name: " . $row["name"]. " -num" . $row["num"]. "<br>";
+            $array[$i]["infoId"] = $i;
+            $array[$i]["infoAddress"] = $row["base"];
+            $array[$i]["infoCompany"] = $row["company"];
+            $array[$i]["infoJob"] = $row["job"];
+            $array[$i]["infoHerf"] = $row["url"];  
+            $array[$i]["infoSource"] = $row["source"];  
+            $array[$i]["infoTime"] = $row["upgrade_date"];  
+            $i++;
         }
     } else {
         echo "0 结果";
     }
+
+    $data = json_encode(
+        array(
+            "查询结果"=>$array
+        ),JSON_UNESCAPED_UNICODE
+        );
+        
+    echo "查询语句: " .$sql . "<br />";
+    echo $data;
     $conn->close();
 ?>

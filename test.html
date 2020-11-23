@@ -2,13 +2,53 @@
 <html>
 
 <head>
-    <meta http-equiv="Content-Type" content="charset=UTF-8">
-    <title>武汉大学研究生会求职就业信息汇总</title>
-    <link rel="stylesheet" href="WorkInfo.css" type="text/css" charset="utf-8" />
+    <title>jquery</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 </head>
 
 <body>
-    <img src="icon/xiaohui.png" style="width:75%" alt="武汉大学校徽">
+
+    <button onclick="sendAjaxGet()">发送请求GET</button>
+    <button onclick="sendAjaxPost()">发送请求POST</button>
+
+    <script type="text/javascript">
+        function sendAjaxPost() {
+            let json = {
+                username: "lindont",
+                password: "123456"
+            }
+            $.ajax({
+                type: "POST",
+                url: "php/SqlLink.php",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(json),
+                /*传给后端的数据格式json*/
+                dataType: "json",
+                /*后端返回的数据格式json*/
+                success: function(data) {
+                    console.log(data);
+                },
+                error: function(message) {
+
+                }
+            });
+        }
+
+
+        function sendAjaxGet() {
+
+            $.ajax({
+                type: "GET",
+                url: "php/SqlLink.php",
+                success: function(data) {
+                    console.log(data);
+                },
+                error: function(message) {
+
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>

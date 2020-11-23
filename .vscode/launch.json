@@ -40,6 +40,13 @@
             "cwd": "${fileDirname}",
             "port": 9000
             
+            },
+            {
+                "name": "firefox",
+                "type": "firefox",
+                "request": "launch",
+                "reAttach": true,
+                "file": "C:/Users/Administrator/Desktop/WorkInfoHtml/WorkInfo.html"
             }
     ]
 }
