@@ -33,19 +33,32 @@ function ajaxFunction() {
             }
         }
     }
-    ajaxRequest.open("GET", "test.php", true);
+    ajaxRequest.open("GET", "http://localhost:8888/WorkInfoHtml/test.php", true);
     ajaxRequest.send(null);
 }
 
 function dataGet() {
     console.log("ohohohoho")
+    request_name = 'lsc';
+    request_gender = '1202';
+    var send_info = {
+        'name': request_name,
+        'gender': request_gender
+    };
     $.ajax({
-        type: "GET",
-        url: "SqlLink.php",
+        type: "post",
+        crossDomain: true,
+        url: "http://127.0.0.1:8888/api/test",
+        data: JSON.stringify(send_info),
         dataType: "json",
-        "content-type": "application/json",
+        // processData: false,
+        // "content-type": "application/json",
+        // jsonpCallback: "callback",
+
         success: function(data) {
+            console.log("yes!")
             console.log(data);
+
         },
         error: function(message) {
             console.log(message);
@@ -53,3 +66,22 @@ function dataGet() {
         }
     });
 }
+
+
+
+// new Vue({
+//     el: '#sqlreturn',
+//     data() {
+//         return {
+//             info: null
+//         }
+//     },
+//     mounted() {
+//         axios
+//             .get('http://localhost:8080/api/test')
+//             .then(response => (this.info = response))
+//             .catch(function(error) { // 请求失败处理
+//                 console.log(error);
+//             });
+//     }
+// })

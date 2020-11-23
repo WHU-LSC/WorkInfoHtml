@@ -1,7 +1,7 @@
 
 <?php
-    // ob_start ();
-    // header("Access-Control-Allow-Origin:*");
+    ob_start ();
+    header("Access-Control-Allow-Origin:*");
     $conn = mysqli_connect("localhost","root","123456","shixi") or die("数据库连接失败".mysql_error());
     $sql = "select * from shixi_country";//查询数据库当中的表的ID，
     $result = $conn->query($sql);

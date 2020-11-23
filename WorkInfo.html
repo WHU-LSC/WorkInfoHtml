@@ -5,17 +5,18 @@
     <meta http-equiv="Content-Type" content="charset=UTF-8">
     <title>武汉大学研究生会求职就业信息汇总</title>
     <link rel="stylesheet" href="css/WorkInfo.css" type="text/css" charset="utf-8" />
-    <script src="js/jquery.min.js">
-    </script>
-    <script src="js/WorkInfo.js">
-    </script>
+    <script src="js/jquery.min.js"></script>
+    <!-- <script src="js/vue.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+    <script src="js/WorkInfo.js"></script>
+
 
 </head>
-<script>
+<!-- <script>
     $(document).ready(function() {
         ajaxFunction()
     });
-</script>
+</script> -->
 
 <body>
     <div class="top">
@@ -202,20 +203,13 @@
             <br> 有任何问题可以联系1146517604@qq.com
         </div>
     </div>
-    <!-- <button type="button" class="hei" onclick="ajaxFunction()">点我!</button> -->
+    <button type="button" class="hei" onclick="dataGet()">点我!</button>
 
-    <P id="sqlreturn">这里是数据库返回的信息</P>
-    <!-- <script type="text/javascript">
-        $(".hei").click(function() {
-            $.post("php/SqlLink.php", {
-                    name: "菜鸟教程",
-                    url: "http://www.runoob.com"
-                },
-                function(data, status) {
-                    alert("数据: \n" + data + "\n状态: " + status);
-                });
-        });
-    </script> -->
+    <!-- <P id="sqlreturn">这里是数据库返回的信息
+        <div v-for="site in info">
+            {{ site.job }}
+        </div>
+    </P> -->
 
 </body>
 
