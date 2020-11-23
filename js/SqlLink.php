@@ -1,5 +1,7 @@
 
 <?php
+    // ob_start ();
+    // header("Access-Control-Allow-Origin:*");
     $conn = mysqli_connect("localhost","root","123456","shixi") or die("数据库连接失败".mysql_error());
     $sql = "select * from shixi_country";//查询数据库当中的表的ID，
     $result = $conn->query($sql);
@@ -23,14 +25,7 @@
     } else {
         echo "0 结果";
     }
-
-    $data = json_encode(
-        array(
-            "查询结果"=>$array
-        ),JSON_UNESCAPED_UNICODE
-        );
-        
-    echo "查询语句: " .$sql . "<br />";
+    $data = json_encode($array,JSON_UNESCAPED_UNICODE);
     echo $data;
     $conn->close();
 ?>

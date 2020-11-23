@@ -47,6 +47,13 @@
                 "request": "launch",
                 "reAttach": true,
                 "file": "C:/Users/Administrator/Desktop/WorkInfoHtml/WorkInfo.html"
+            },
+            {
+                "name": "firefox test",
+                "type": "firefox",
+                "request": "launch",
+                "reAttach": true,
+                "file": "C:/Users/Administrator/Desktop/WorkInfoHtml/test.html"
             }
     ]
 }
