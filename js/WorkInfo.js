@@ -1,8 +1,11 @@
 var totaldata;
 var dataCountry;
-var dataWhan;
-var totalTime = [];
+var dataWuhan;
+var decision = 1;
 
+function initial() {
+    totaldata = dataGet();
+}
 //获取全部数据的ajax请求
 function dataGet() {
     // Header = "Access-Control-Allow-Origin: * ";
@@ -39,13 +42,28 @@ function dataGet() {
 
 //当页面加载成功时启用这个函数，讲200条信息展示出来
 function totalDataShowCountry() {
-    totaldata = dataGet();
     dataCountry = totaldata["country"].message;
     dataWrite(dataCountry, 'dataInfo');
+    var totalTime = [];
     for (var i = 0; i < dataCountry.length; i++) {
         totalTime[i] = String(dataCountry[i].upgrade_date);
     }
     updateSideLine(totalTime);
+}
+//当点击武汉界面的时候
+function totalDataShowWuhan() {
+    decision = 2;
+    dataWuhan = totaldata["wuhan"].message;
+    dataWrite(dataWuhan, 'dataInfo');
+    var totalTime = [];
+    for (var i = 0; i < dataWuhan.length; i++) {
+        totalTime[i] = String(dataWuhan[i].upgrade_date);
+    }
+    updateSideLine(totalTime);
+}
+
+function changeDecision() {
+    decision = 1;
 }
 
 function dataWrite(data, Id) {
@@ -55,7 +73,6 @@ function dataWrite(data, Id) {
     // 输出全部信息
     var num = (200 > data.length ? data.length : 200);
     for (var i = 0; i < num; i++) {
-        totalTime[i] = String(data[i].upgrade_date);
         oneInfo += '<div class="infoDetial" id="'
         oneInfo += String(i)
         oneInfo += '"><a class="infoAddress" href="#">'
@@ -87,14 +104,26 @@ function updateSideLine(totalTime) {
 //点击左边sideline的时间出发这个函数，按照时间来获取
 function searchByTime(time) {
     console.log(time);
-    var shixiByTime = [];
-    var k = 0;
-    for (var j = 0; j < dataCountry.length; j++) {
-        if (dataCountry[j].upgrade_date === time) {
-            shixiByTime[k] = dataCountry[j];
-            k++;
+    if (decision === 1) {
+        var shixiByTime = [];
+        var k = 0;
+        for (var j = 0; j < dataCountry.length; j++) {
+            if (dataCountry[j].upgrade_date === time) {
+                shixiByTime[k] = dataCountry[j];
+                k++;
+            }
+        }
+    } else if (decision === 2) {
+        var shixiByTime = [];
+        var k = 0;
+        for (var j = 0; j < dataWuhan.length; j++) {
+            if (dataWuhan[j].upgrade_date === time) {
+                shixiByTime[k] = dataWuhan[j];
+                k++;
+            }
         }
     }
+
     // console.log(shixiByTime);
     // console.log(dataCountry);
     dataWrite(shixiByTime, 'dataInfo');

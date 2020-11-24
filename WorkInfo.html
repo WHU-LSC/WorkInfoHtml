@@ -25,8 +25,8 @@
     </div>
 
     <div id="MainMenu">
-        <a class="Menu" href="#">全国地区</a>
-        <a class="Menu" href="#">武汉地区</a>
+        <a class="Menu" href="#" onclick="changeDecision();totalDataShowCountry();return false;">全国地区</a>
+        <a class="Menu" href="#" onclick="totalDataShowWuhan();return false;">武汉地区</a>
         <a class="Menu" href="#">周末专题</a>
         <a class="Menu" href="#">求职月报</a>
     </div>
@@ -60,6 +60,7 @@
         </div>
     </div>
     <script>
+        initial();
         totalDataShowCountry();
     </script>
 </body>
