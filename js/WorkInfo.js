@@ -84,7 +84,6 @@ function dataWrite(data, Id) {
         oneInfo += '</a><a class="infoHerf" href="'
         oneInfo += String(data[i].url)
         oneInfo += '" target="_blank">&emsp;&nbsp;详情请点击</a></div>'
-            // console.log(oneInfo);
     }
     country.innerHTML = oneInfo;
 }
@@ -103,7 +102,7 @@ function updateSideLine(totalTime) {
 }
 //点击左边sideline的时间出发这个函数，按照时间来获取
 function searchByTime(time) {
-    console.log(time);
+    // console.log(time);
     if (decision === 1) {
         var shixiByTime = [];
         var k = 0;
