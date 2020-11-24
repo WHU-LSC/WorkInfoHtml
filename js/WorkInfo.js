@@ -38,6 +38,7 @@ function ajaxFunction() {
 }
 
 function dataGet() {
+    // Header = "Access-Control-Allow-Origin: * ";
     console.log("ohohohoho")
     request_name = 'lsc';
     request_gender = '1202';
@@ -48,13 +49,13 @@ function dataGet() {
     $.ajax({
         type: "post",
         crossDomain: true,
-        url: "http://127.0.0.1:8888/api/test",
+        url: "http://127.0.0.1:8080/api/test",
+        // url: "https://lsc.ngrok2.xiaomiqiu.cn/api/test",
         data: JSON.stringify(send_info),
         dataType: "json",
         // processData: false,
         // "content-type": "application/json",
         // jsonpCallback: "callback",
-
         success: function(data) {
             console.log("yes!")
             console.log(data);
