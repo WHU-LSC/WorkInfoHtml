@@ -138,6 +138,16 @@ function removeDuplicates(arr) {
     return r;
 }
 
+function ShowDiv(id) {
+    var traget = document.getElementById(id);
+    traget.style.display = "";
+}
+
+function notShowDiv(id) {
+    var traget = document.getElementById(id);
+    traget.style.display = "none";
+}
+
 // function ajaxFunction() {
 //     var ajaxRequest; //the variable that makes Ajax possile!
 //     try {

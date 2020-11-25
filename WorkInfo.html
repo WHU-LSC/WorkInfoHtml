@@ -25,19 +25,18 @@
     </div>
 
     <div id="MainMenu">
-        <a class="Menu" href="#" onclick="changeDecision();totalDataShowCountry();return false;">全国地区</a>
-        <a class="Menu" href="#" onclick="totalDataShowWuhan();return false;">武汉地区</a>
-        <a class="Menu" href="#">周末专题</a>
-        <a class="Menu" href="#">求职月报</a>
+        <a class="Menu" href="#" onclick="ShowDiv('MainInfo');changeDecision();totalDataShowCountry();return false;">全国地区</a>
+        <a class="Menu" href="#" onclick="ShowDiv('MainInfo');totalDataShowWuhan();return false;">武汉地区</a>
+        <a class="Menu" href="WorkSpecital.html" onclick="notShowDiv('MainInfo');return false;">周末专题</a>
+        <a class="Menu" href="WorkNewspaper.html" onclick="notShowDiv('MainInfo');return false;">求职月报</a>
     </div>
 
-    <div class="MainContent">
+    <div class="MainContent" id="MainInfo">
         <div class="sidebar">
             <a class="dateTitle">按日期查找</a>
             <div id="dateDetail">
                 <a id="dateContent" href="#">2020-11-22</a>
             </div>
-
 
         </div>
         <div class="middleInfo">
