@@ -148,6 +148,10 @@ function notShowDiv(id) {
     traget.style.display = "none";
 }
 
+function addImg() {
+    alert("正在开发！敬请期待！")
+}
+
 // function ajaxFunction() {
 //     var ajaxRequest; //the variable that makes Ajax possile!
 //     try {
