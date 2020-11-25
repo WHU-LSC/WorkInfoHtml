@@ -137,6 +137,11 @@ function removeDuplicates(arr) {
         r.push(k);
     return r;
 }
+//将熟悉信息的数据按照时间的降序排列
+//由于这个功能在读出数据时已经做到，所以可能会在检索中使用到
+function SrotShixiInfo(data) {
+
+}
 
 function ShowDiv(id) {
     var traget = document.getElementById(id);
