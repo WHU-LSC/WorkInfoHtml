@@ -25,13 +25,13 @@
     </div>
 
     <div id="MainMenu">
-        <a class="Menu" href="#" onclick="ShowDiv('MainInfo');changeDecision();totalDataShowCountry();return false;">全国地区</a>
-        <a class="Menu" href="#" onclick="ShowDiv('MainInfo');totalDataShowWuhan();return false;">武汉地区</a>
-        <a class="Menu" href="WorkSpecital.html" onclick="notShowDiv('MainInfo');return false;">周末专题</a>
-        <a class="Menu" href="WorkNewspaper.html" onclick="notShowDiv('MainInfo');return false;">求职月报</a>
+        <a class="Menu" href="#" onclick="notShowDiv('MainInfoSpecial');ShowDiv('MainInfoShixi');changeDecision();totalDataShowCountry();return false;">全国地区</a>
+        <a class="Menu" href="#" onclick="notShowDiv('MainInfoSpecial');ShowDiv('MainInfoShixi');totalDataShowWuhan();return false;">武汉地区</a>
+        <a class="Menu" href="WorkSpecital.html" onclick="notShowDiv('MainInfoShixi');ShowDiv('MainInfoSpecial');return false;">周末专题</a>
+        <!-- <a class="Menu" href="WorkNewspaper.html" onclick="notShowDiv('MainInfoShixi');return false;">求职月报</a> -->
     </div>
-
-    <div class="MainContent" id="MainInfo">
+    <!-- 这里是前两个板块的实习信息的内容HTML -->
+    <div class="MainContent" id="MainInfoShixi">
         <div class="sidebar">
             <a class="dateTitle">按日期查找</a>
             <div id="dateDetail">
@@ -50,7 +50,10 @@
             </div>
         </div>
     </div>
-
+    <!-- 这里放后一个板块的就业专题的内容 -->
+    <div class="Maincontent" id="MainInfoSpecial">
+        <p>hello world</p>
+    </div>
     <br>
     <div class="footer">
         <div class="acknowledge">
