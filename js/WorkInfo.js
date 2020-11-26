@@ -45,7 +45,7 @@ function localDataGet() {
     $.ajax({
         type: "get",
         // url: "js/totaldata.json",
-        url: "https://lsc19971129.github.io/WorkInfoHtml/js/totaldata.json",
+        url: "https://whu-lsc.github.io/WorkInfoHtml/js/totaldata.json",
         dataType: "json",
         async: false,
         success: function(data) {
