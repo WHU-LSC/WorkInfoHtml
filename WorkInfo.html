@@ -6,9 +6,11 @@
     <title>武汉大学研究生会求职就业信息汇总</title>
     <link rel="stylesheet" href="css/WorkInfo.css" type="text/css" charset="utf-8" />
     <script src="js/jquery.min.js"></script>
-    <!-- <script src="js/vue.min.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+    <!--  <script src="js/vue.min.js"></script> -->
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+     -->
     <script src="js/WorkInfo.js"></script>
+
 
 </head>
 
@@ -44,7 +46,8 @@
                 <a class="infoAddressTitle" href="#">地区</a>
                 <a class="infoCompanyTitle" href="#">公司名称</a>
                 <a class="infoJobTitle" href="#">实习岗位</a>
-                <a class="infoHerfTitle" href="#">详情链接</a>
+                <a class="infoTimeTitle" href="#">更新时间</a>
+                <a class="infoHerfTitle" href="#">详情</a>
             </div>
             <div class="shixixinxi" id="dataInfo">
             </div>
@@ -58,49 +61,7 @@
         <div class="imgDetail" id="imgInfo">
             <div class="img" id="special_1">
                 <div class="imgTitle">这里添加图片名称</div>
-                <a target="_blank" href="http://static.runoob.com/images/demo/demo1.jpg">
-                    <img loading="lazy" src="http://static.runoob.com/images/demo/demo1.jpg" alt="图片文本描述" width="300" height="200">
-                </a>
-                <div class="imgDesc">这里添加图片文本描述</div>
-            </div>
-            <div class="img" id="special_1">
-                <div class="imgTitle">这里添加图片名称</div>
-                <a target="_blank" href="http://static.runoob.com/images/demo/demo1.jpg">
-                    <img loading="lazy" src="http://static.runoob.com/images/demo/demo1.jpg" alt="图片文本描述" width="300" height="200">
-                </a>
-                <div class="imgDesc">这里添加图片文本描述</div>
-            </div>
-            <div class="img" id="special_1">
-                <div class="imgTitle">这里添加图片名称</div>
-                <a target="_blank" href="http://static.runoob.com/images/demo/demo1.jpg">
-                    <img loading="lazy" src="http://static.runoob.com/images/demo/demo1.jpg" alt="图片文本描述" width="300" height="200">
-                </a>
-                <div class="imgDesc">这里添加图片文本描述</div>
-            </div>
-            <div class="img" id="special_1">
-                <div class="imgTitle">这里添加图片名称</div>
-                <a target="_blank" href="http://static.runoob.com/images/demo/demo1.jpg">
-                    <img loading="lazy" src="http://static.runoob.com/images/demo/demo1.jpg" alt="图片文本描述" width="300" height="200">
-                </a>
-                <div class="imgDesc">这里添加图片文本描述</div>
-            </div>
-            <div class="img" id="special_1">
-                <div class="imgTitle">这里添加图片名称</div>
-                <a target="_blank" href="http://static.runoob.com/images/demo/demo1.jpg">
-                    <img loading="lazy" src="http://static.runoob.com/images/demo/demo1.jpg" alt="图片文本描述" width="300" height="200">
-                </a>
-                <div class="imgDesc">这里添加图片文本描述</div>
-            </div>
-            <div class="img" id="special_1">
-                <div class="imgTitle">这里添加图片名称</div>
-                <a target="_blank" href="http://static.runoob.com/images/demo/demo1.jpg">
-                    <img loading="lazy" src="http://static.runoob.com/images/demo/demo1.jpg" alt="图片文本描述" width="300" height="200">
-                </a>
-                <div class="imgDesc">这里添加图片文本描述</div>
-            </div>
-            <div class="img" id="special_1">
-                <div class="imgTitle">这里添加图片名称</div>
-                <a target="_blank" href="http://static.runoob.com/images/demo/demo1.jpg">
+                <a id="weekendbox" target="_blank" href="http://static.runoob.com/images/demo/demo1.jpg">
                     <img loading="lazy" src="http://static.runoob.com/images/demo/demo1.jpg" alt="图片文本描述" width="300" height="200">
                 </a>
                 <div class="imgDesc">这里添加图片文本描述</div>
@@ -120,6 +81,7 @@
         notShowDiv('MainInfoSpecial');
         initial();
         totalDataShowCountry();
+        WeedendDateLoad();
     </script>
 </body>
 

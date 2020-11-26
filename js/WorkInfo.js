@@ -4,6 +4,7 @@ var dataWuhan;
 var decision = 1;
 
 function initial() {
+    totaldata = localDataGet();
     totaldata = dataGet();
 }
 //获取全部数据的ajax请求
@@ -30,7 +31,6 @@ function dataGet() {
             console.log("dataget yes!")
             totaldata = data;
             // console.log(data);
-
         },
         error: function(message) {
             console.log(message);
@@ -38,6 +38,47 @@ function dataGet() {
         }
     });
     return totaldata;
+}
+
+function localDataGet() {
+    var totaldata;
+    $.ajax({
+        type: "get",
+        url: "js/totaldata.json",
+        dataType: "json",
+        async: true,
+        success: function(data) {
+            console.log("dataget yes!")
+            totaldata = data;
+            // console.log(data);
+        },
+        error: function(message) {
+            console.log(message);
+            console.log("error");
+        }
+    });
+    return totaldata;
+}
+
+//用于保存json文件
+function saveJSON(data, filename) {
+    if (!data) {
+        alert('保存的数据为空');
+        return;
+    }
+    if (!filename)
+        filename = 'json.json'
+    if (typeof data === 'object') {
+        data = JSON.stringify(data, undefined, 4)
+    }
+    var blob = new Blob([data], { type: 'text/json' }),
+        e = document.createEvent('MouseEvents'),
+        a = document.createElement('a')
+    a.download = filename
+    a.href = window.URL.createObjectURL(blob)
+    a.dataset.downloadurl = ['text/json', a.download, a.href].join(':')
+    e.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null)
+    a.dispatchEvent(e)
 }
 
 //当页面加载成功时启用这个函数，讲200条信息展示出来
@@ -81,11 +122,35 @@ function dataWrite(data, Id) {
         oneInfo += String(data[i].company)
         oneInfo += '</a><a class="infoJob" href="#">'
         oneInfo += String(data[i].job)
+        oneInfo += '</a><a class="infoTime" href="#">&emsp;'
+        oneInfo += String(data[i].upgrade_date)
         oneInfo += '</a><a class="infoHerf" href="'
         oneInfo += String(data[i].url)
-        oneInfo += '" target="_blank">&emsp;&nbsp;详情请点击</a></div>'
+        oneInfo += '" target="_blank">&nbsp;详情链接</a></div>'
     }
     country.innerHTML = oneInfo;
+}
+
+function WeedendDateLoad() {
+    var weekendData = totaldata["weekend"].message;
+    var weekend = document.getElementById('imgInfo');
+    //写入数据的同时更新时间的排序
+    var oneInfo = '';
+    // 输出全部信息
+    for (var i = 0; i < weekendData.length; i++) {
+        oneInfo += ' <div class="img" id="special_'
+        oneInfo += String(i)
+        oneInfo += '"><div class="imgTitle">'
+        oneInfo += String(weekendData[i].title)
+        oneInfo += '</div><a id="weekendbox" target="_blank" href="'
+        oneInfo += String(weekendData[i].herf)
+        oneInfo += '"><img loading="lazy" src="'
+        oneInfo += String(weekendData[i].herf)
+        oneInfo += '" alt="图片文本描述"></a><div class="imgDesc">'
+        oneInfo += String(weekendData[i].detail)
+        oneInfo += '</div></div>'
+    }
+    weekend.innerHTML = oneInfo;
 }
 
 function updateSideLine(totalTime) {
