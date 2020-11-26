@@ -5,9 +5,9 @@ var decision = 1;
 
 function initial() {
     totaldata = localDataGet();
-    totaldata = dataGet();
+    // totaldata = dataGet();
 }
-//获取全部数据的ajax请求
+//获取全部数据的ajax请求,本地数据接口
 function dataGet() {
     // Header = "Access-Control-Allow-Origin: * ";
     request_name = 'lsc';
@@ -39,14 +39,15 @@ function dataGet() {
     });
     return totaldata;
 }
-
+//本地json数据的获取
 function localDataGet() {
     var totaldata;
     $.ajax({
         type: "get",
-        url: "js/totaldata.json",
+        // url: "js/totaldata.json",
+        url: "https://lsc19971129.github.io/WorkInfoHtml/js/totaldata.json",
         dataType: "json",
-        async: true,
+        async: false,
         success: function(data) {
             console.log("dataget yes!")
             totaldata = data;
