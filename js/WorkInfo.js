@@ -1,12 +1,16 @@
 var totaldata;
 var dataCountry;
 var dataWuhan;
-var decision = 1;
-
+var dataSearch;
+var decision = 1; //这个时方便界面切换的时候区分程序应该操作的内容，1表示全国实习信息，2表示武汉地区实习信息，3表示周末专题
+//初始化的函数
 function initial() {
     totaldata = localDataGet();
+    dataWuhan = totaldata["wuhan"].message;
+    dataCountry = totaldata["country"].message;
     // totaldata = dataGet();
 }
+
 //获取全部数据的ajax请求,本地数据接口
 function dataGet() {
     // Header = "Access-Control-Allow-Origin: * ";
@@ -39,7 +43,8 @@ function dataGet() {
     });
     return totaldata;
 }
-//本地json数据的获取
+
+//本地json数据的获取，json文件保存在github的仓库中
 function localDataGet() {
     var totaldata;
     $.ajax({
@@ -82,9 +87,9 @@ function saveJSON(data, filename) {
     a.dispatchEvent(e)
 }
 
-//当页面加载成功时启用这个函数，讲200条信息展示出来
+//当页面加载成功时启用这个函数，讲200条（或者是少于200条）全国实习的信息展示出来
 function totalDataShowCountry() {
-    dataCountry = totaldata["country"].message;
+    decision = 1;
     dataWrite(dataCountry, 'dataInfo');
     var totalTime = [];
     for (var i = 0; i < dataCountry.length; i++) {
@@ -92,10 +97,10 @@ function totalDataShowCountry() {
     }
     updateSideLine(totalTime);
 }
-//当点击武汉界面的时候
+
+//当点击武汉界面的时候，展现出武汉地区的实习信息
 function totalDataShowWuhan() {
     decision = 2;
-    dataWuhan = totaldata["wuhan"].message;
     dataWrite(dataWuhan, 'dataInfo');
     var totalTime = [];
     for (var i = 0; i < dataWuhan.length; i++) {
@@ -103,11 +108,11 @@ function totalDataShowWuhan() {
     }
     updateSideLine(totalTime);
 }
-
+// 这个函数的存在实在武汉和全国地区的实习信息交替更换的时候能够爱心暗示出正确的信息
 function changeDecision() {
     decision = 1;
 }
-
+// 用于实习信息的写入函数
 function dataWrite(data, Id) {
     var country = document.getElementById(Id);
     //写入数据的同时更新时间的排序
@@ -129,9 +134,14 @@ function dataWrite(data, Id) {
         oneInfo += String(data[i].url)
         oneInfo += '" target="_blank">&nbsp;详情链接</a></div>'
     }
-    country.innerHTML = oneInfo;
-}
+    if (oneInfo == '') {
+        country.innerHTML = '<p id="noInfo">信息为空.....</p>';
+    } else {
+        country.innerHTML = oneInfo;
+    }
 
+}
+//将周末专题的信息写入网页的函数
 function WeedendDateLoad() {
     var weekendData = totaldata["weekend"].message;
     var weekend = document.getElementById('imgInfo');
@@ -153,7 +163,7 @@ function WeedendDateLoad() {
     }
     weekend.innerHTML = oneInfo;
 }
-
+// 在开始的时候会更具json文件中的数据更新时间栏
 function updateSideLine(totalTime) {
     var TimeSide = removeDuplicates(totalTime);
     var timeside = document.getElementById('dateDetail');
@@ -166,7 +176,7 @@ function updateSideLine(totalTime) {
     }
     timeside.innerHTML = oneTime;
 }
-//点击左边sideline的时间出发这个函数，按照时间来获取
+//点击左边sideline的时间出发这个函数，按照时间来筛选实习信息
 function searchByTime(time) {
     // console.log(time);
     if (decision === 1) {
@@ -193,7 +203,7 @@ function searchByTime(time) {
     // console.log(dataCountry);
     dataWrite(shixiByTime, 'dataInfo');
 }
-
+//去除字符串的重复
 function removeDuplicates(arr) {
     var temp = {},
         r = [];
@@ -206,22 +216,76 @@ function removeDuplicates(arr) {
 //将熟悉信息的数据按照时间的降序排列
 //由于这个功能在读出数据时已经做到，所以可能会在检索中使用到
 function SrotShixiInfo(data) {
-
+    var sortData;
+    return sortData;
 }
 
+// 用于搜索组件的功能实现
+function SearchData() {
+    dataSearch = []
+        // searchtext = String(searchtext)
+    var x = document.getElementById("searchinput") //获取输入框元素
+    var searchtext = x.value;
+    console.log(searchtext)
+    if (decision == 3) {
+        // 周末专题的搜索
+        console.log("周末专题的搜索")
+    } else {
+        //实习信息的搜索
+        var k = 0;
+        // for (var i = 0; i < dataCountry.length; i++) {
+        //     if (searchtext.indexOf(dataCountry[i].base) != -1 || searchtext.indexOf(dataCountry[i].company) != -1 || searchtext.indexOf(dataCountry[i].job) != -1 || searchtext.indexOf(dataCountry[i].upgrade_date != -1)) {
+        //         dataSearch[k] = dataCountry[i];
+        //         k++;
+        //     }
+        // }
+        // for (var i = 0; i < dataWuhan.length; i++) {
+        //     if (searchtext.indexOf(dataWuhan[i].base) != -1 || searchtext.indexOf(dataWuhan[i].company) != -1 || searchtext.indexOf(dataWuhan[i].job) != -1 || searchtext.indexOf(dataWuhan[i].upgrade_date != -1)) {
+        //         dataSearch[k] = dataCountry[i];
+        //         k++;
+        //     }
+        // }
+        for (var i = 0; i < dataCountry.length; i++) {
+            if ((dataCountry[i].base).match(searchtext) || (dataCountry[i].company).match(searchtext) || (dataCountry[i].job).match(searchtext)) {
+                dataSearch[k] = dataCountry[i];
+                console.log((dataCountry[i].base).match(searchtext) || (dataCountry[i].company).match(searchtext) || (dataCountry[i].job).match(searchtext))
+                k++;
+            }
+        }
+        for (var i = 0; i < dataWuhan.length; i++) {
+            if ((dataWuhan[i].base).match(searchtext) || (dataWuhan[i].company).match(searchtext) || (dataWuhan[i].job).match(searchtext)) {
+                console.log((dataWuhan[i].base).match(searchtext) || (dataWuhan[i].company).match(searchtext) || (dataWuhan[i].job).match(searchtext))
+                dataSearch[k] = dataCountry[i];
+                k++;
+            }
+        }
+    }
+    console.log(dataSearch)
+    dataWrite(dataSearch, 'dataInfo');
+}
+
+// 显示网页的div组件
 function ShowDiv(id) {
     var traget = document.getElementById(id);
     traget.style.display = "";
 }
-
+// 不显示网页的div组件
 function notShowDiv(id) {
     var traget = document.getElementById(id);
     traget.style.display = "none";
 }
-
+// 增加周末专题的按钮控制函数
 function addImg() {
     alert("正在开发！敬请期待！")
 }
+//对于搜索框回车事件的监听
+$('#coding').bind('keypress', function(event) {
+    if (event.keyCode == "13") {
+        console.log("jahah ")
+    }
+});
+
+// 下面是在获取json文件时做的一些尝试，在readme文件中也有体现
 
 // function ajaxFunction() {
 //     var ajaxRequest; //the variable that makes Ajax possile!
