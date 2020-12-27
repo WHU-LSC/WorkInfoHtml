@@ -8,10 +8,8 @@
     <script src="js/jquery.min.js"></script>
     <!--  <script src="js/vue.min.js"></script> -->
     <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-     -->
+         -->
     <script src="js/WorkInfo.js"></script>
-
-
 </head>
 
 <body>
@@ -19,17 +17,16 @@
         <div class="Name">
             <img src="icon/xiaohui.png" style="width: 70%;" alt="武汉大学校徽">
         </div>
-        <!-- <div class="Search">
-            <form action="#">
-                <input class="SearchInput" placeholder="搜索实习信息……" autocomplete="off">
-            </form>
-        </div> -->
+        <div class="Search">
+            <input id="searchinput" class="SearchInput" placeholder="搜索信息……" autocomplete="off">
+            <button onclick="SearchData()">搜索</button>
+        </div>
     </div>
 
     <div id="MainMenu">
-        <a class="Menu" href="#" onclick="notShowDiv('MainInfoSpecial');ShowDiv('MainInfoShixi');changeDecision();totalDataShowCountry();return false;">全国地区</a>
-        <a class="Menu" href="#" onclick="notShowDiv('MainInfoSpecial');ShowDiv('MainInfoShixi');totalDataShowWuhan();return false;">武汉地区</a>
-        <a class="Menu" href="WorkSpecital.html" onclick="notShowDiv('MainInfoShixi');ShowDiv('MainInfoSpecial');return false;">周末专题</a>
+        <a class="Menu" href="#" onclick="notShowDiv('MainInfoSpecial');ShowDiv('MainInfoShixi');changeDecision();decision=1;totalDataShowCountry();return false;">全国地区</a>
+        <a class="Menu" href="#" onclick="notShowDiv('MainInfoSpecial');ShowDiv('MainInfoShixi');totalDataShowWuhan();decision=2;return false;">武汉地区</a>
+        <a class="Menu" href="WorkSpecital.html" onclick="notShowDiv('MainInfoShixi');ShowDiv('MainInfoSpecial');decision=3;return false;">周末专题</a>
         <!-- <a class="Menu" href="WorkNewspaper.html" onclick="notShowDiv('MainInfoShixi');return false;">求职月报</a> -->
     </div>
     <!-- 这里是前两个板块的实习信息的内容HTML -->
@@ -82,6 +79,7 @@
         totalDataShowCountry();
         WeedendDateLoad();
     </script>
+
 </body>
 
 </html>

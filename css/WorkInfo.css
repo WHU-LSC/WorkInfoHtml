@@ -16,25 +16,23 @@ body {
 
 .Search {
     width: 37%;
-    text-align: right;
+    /* text-align: right; */
     display: inline-block;
-}
-
-.Search form {
-    background: #f0fae5;
+    background: rgb(221, 240, 206);
     padding: 5px;
     border-radius: 5px;
     margin: 5px 0 0 0;
 }
 
-.Search form input {
+.Search input {
     line-height: 34px;
+    display: inline-block;
     left: 9px;
     top: 0;
     white-space: nowrap;
     right: 9px;
     height: 35px;
-    width: 94%;
+    width: 74%;
     padding: 0 3% 0 3%;
     background-color: #fff;
     border: 1px solid #c8c8c8;
@@ -46,6 +44,26 @@ body {
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
+}
+
+.Search button {
+    background-color: rgb(95, 151, 123);
+    /*Green*/
+    border: none;
+    color: white;
+    padding: 4px 4px 7px 4px;
+    margin-left: 8px;
+    width: 15%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    -webkit-border-radius: 5px;
 }
 
 #MainMenu {
@@ -191,6 +209,12 @@ body {
 #dataInfo {
     overflow: auto;
     height: 1000px;
+}
+
+#noInfo {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
 }
 
 .infoJobTitle {
