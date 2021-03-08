@@ -1,3 +1,5 @@
+
+
 var totaldata;
 var dataCountry;
 var dataWuhan;
@@ -49,8 +51,8 @@ function localDataGet() {
     var totaldata;
     $.ajax({
         type: "get",
-        // url: "js/totaldata.json",
-        url: "https://whu-lsc.github.io/WorkInfoHtml/js/totaldata.json",
+        url: "http://127.0.0.1:8000/data",
+        // url: "https://whu-lsc.github.io/WorkInfoHtml/js/totaldata.json",
         dataType: "json",
         async: false,
         success: function(data) {
@@ -112,6 +114,7 @@ function totalDataShowWuhan() {
 function changeDecision() {
     decision = 1;
 }
+
 // 用于实习信息的写入函数
 function dataWrite(data, Id) {
     var country = document.getElementById(Id);
@@ -141,6 +144,14 @@ function dataWrite(data, Id) {
     }
 
 }
+// 将写入信息的函数进行组件化
+// function dataWrite(data, Id) {
+//     var preShowDate = 200 > data.length ? data : data.slice(0,199)
+//     ReactDOM.gender(preShowDate.map(item=><InfoItem {...item}></InfoItem>),document.getElementById(Id))
+// }
+
+
+
 //将周末专题的信息写入网页的函数
 function WeedendDateLoad() {
     var weekendData = totaldata["weekend"].message;
@@ -343,3 +354,4 @@ $('#coding').bind('keypress', function(event) {
 //             });
 //     }
 // })
+
