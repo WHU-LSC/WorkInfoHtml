@@ -51,8 +51,8 @@ function localDataGet() {
     var totaldata;
     $.ajax({
         type: "get",
-        url: "http://127.0.0.1:8000/data",
-        // url: "https://whu-lsc.github.io/WorkInfoHtml/js/totaldata.json",
+//         url: "http://127.0.0.1:8000/data",
+        url: "https://whu-lsc.github.io/WorkInfoHtml/js/totaldata.json",
         dataType: "json",
         async: false,
         success: function(data) {
